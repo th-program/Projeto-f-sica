@@ -51,19 +51,40 @@
             box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
-        /* HERO SECTION */
+       /* HERO SECTION */
         .hero {
+        
             height: 100vh;
+            height: 100dvh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(15, 10, 26, 0.6), rgba(15, 10, 26, 0.9)),
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072') center/cover;
+            
+            
+            background: linear-gradient(rgba(15, 10, 26, 0.7), rgba(15, 10, 26, 0.9)),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
+            background-position: center center;
+            background-size: cover; /* Garante que a imagem preencha tudo sem distorcer */
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* Melhor performance em celulares que 'fixed' */
+            
             padding: 20px;
+            width: 100%;
         }
 
+        /* Ajuste específico para textos no celular não transbordarem */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px; /* Reduz um pouco o título no celular para caber melhor */
+                line-height: 1.2;
+            }
+            .hero p {
+                font-size: 16px !important;
+                padding: 0 10px;
+            }
+        }
         .hero h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 900; line-height: 1; margin: 20px 0; }
         .gradient-text { background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
@@ -189,7 +210,7 @@
         </section>
 
         <footer style="text-align: center; padding: 60px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05);">
-            &copy; 2026 Projeto Meninas na Ciência | "Onde há curiosidade, há ciência."
+            &copy; 2026 2ºA Projeto Meninas e Mulheres na Ciência | Alunos: Arthur Eduardo - Maria Eduarda - Ana Beatriz - Rayssa
         </footer>
     </div>
 
