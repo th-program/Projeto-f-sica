@@ -227,97 +227,109 @@
     </div>
 
     <script>
-        const WEBHOOK_URL = "https://discord.com/api/webhooks/1487307908126478467/AzisxLSrS5wZr-KsnjUAmS-a5tMCUlVV7BmfqtU_v6RGK9bzmiefgMwlV_JQ_5OR063J"; // <--- COLE SEU LINK AQUI
-        
-        const perguntas = [
-            { q: "Qual força mantém os planetas em órbita ao redor do Sol?", opt: ["Magnetismo", "Inércia", "Gravidade", "Pressão"], res: 2 },
-            { q: "Marie Curie ganhou dois prêmios Nobel em quais áreas?", opt: ["Física e Química", "Física e Biologia", "Química e Medicina", "Matemática"], res: 0 },
-            { q: "O que acontece com a luz quando passa por um prisma?", opt: ["Ela some", "Ela se divide (Refração)", "Ela vira sombra"], res: 1 },
-            { q: "Qual a menor partícula que compõe a matéria comum?", opt: ["Célula", "Molécula", "Átomo", "Grão"], res: 2 },
-            { q: "A primeira programadora do mundo foi uma mulher. Quem?", opt: ["Ada Lovelace", "Grace Hopper", "Marie Curie", "Margareth Hamilton"], res: 0 },
-            { q: "Qual estado da matéria tem volume fixo mas forma variável?", opt: ["Sólido", "Líquido", "Gasoso", "Plasma"], res: 1 },
-            { q: "O som se propaga no vácuo (espaço sideral)?", opt: ["Sim, perfeitamente", "Não, precisa de um meio", "Apenas perto do Sol"], res: 1 },
-            { q: "Quem formulou as leis do movimento e a gravitação universal?", opt: ["Einstein", "Tesla", "Isaac Newton", "Galileu"], res: 2 }
-        ];
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1487307908126478467/AzisxLSrS5wZr-KsnjUAmS-a5tMCUlVV7BmfqtU_v6RGK9bzmiefgMwlV_JQ_5OR063J"; 
+    
+    const perguntas = [
+        { q: "Qual força mantém os planetas em órbita ao redor do Sol?", opt: ["Magnetismo", "Inércia", "Gravidade", "Pressão"], res: 2 },
+        { q: "Marie Curie ganhou dois prêmios Nobel em quais áreas?", opt: ["Física e Química", "Física e Biologia", "Química e Medicina", "Matemática"], res: 0 },
+        { q: "O que acontece com a luz quando passa por um prisma?", opt: ["Ela some", "Ela se divide (Refração)", "Ela vira sombra"], res: 1 },
+        { q: "Qual a menor partícula que compõe a matéria comum?", opt: ["Célula", "Molécula", "Átomo", "Grão"], res: 2 },
+        { q: "A primeira programadora do mundo foi uma mulher. Quem?", opt: ["Ada Lovelace", "Grace Hopper", "Marie Curie", "Margareth Hamilton"], res: 0 },
+        { q: "Qual estado da matéria tem volume fixo mas forma variável?", opt: ["Sólido", "Líquido", "Gasoso", "Plasma"], res: 1 },
+        { q: "O som se propaga no vácuo (espaço sideral)?", opt: ["Sim, perfeitamente", "Não, precisa de um meio", "Apenas perto do Sol"], res: 1 },
+        { q: "Quem formulou as leis do movimento e a gravitação universal?", opt: ["Einstein", "Tesla", "Isaac Newton", "Galileu"], res: 2 }
+    ];
 
-        let nomeEstudante = "";
-        let indiceAtual = 0;
-        let acertos = 0;
+    let nomeEstudante = "";
+    let indiceAtual = 0;
+    let acertos = 0;
 
-        function abrirQuiz() {
-            const jaFez = localStorage.getItem("quiz_vFinal");
-            document.getElementById("tela-principal").classList.add("escondida");
-            document.getElementById("tela-quiz").classList.remove("escondida");
-            if (jaFez) {
-                document.getElementById("etapa-nome").classList.add("escondida");
-                document.getElementById("etapa-bloqueio").classList.remove("escondida");
-            }
-        }
-
-        function fecharQuiz() {
-            document.getElementById("tela-quiz").classList.add("escondida");
-            document.getElementById("tela-principal").classList.remove("escondida");
-        }
-
-        function confirmarNome() {
-            nomeEstudante = document.getElementById("nome-aluno").value;
-            if (nomeEstudante.trim().length < 3) return alert("Digite seu nome completo.");
+    function abrirQuiz() {
+        const jaFez = localStorage.getItem("quiz_vFinal");
+        document.getElementById("tela-principal").classList.add("escondida");
+        document.getElementById("tela-quiz").classList.remove("escondida");
+        if (jaFez) {
             document.getElementById("etapa-nome").classList.add("escondida");
-            document.getElementById("etapa-perguntas").classList.remove("escondida");
-            carregarQuestao();
+            document.getElementById("etapa-bloqueio").classList.remove("escondida");
         }
+    }
 
-        function carregarQuestao() {
-            const questao = perguntas[indiceAtual];
-            document.getElementById("progresso-texto").innerText = `QUESTÃO ${indiceAtual + 1} DE 8`;
-            document.getElementById("pergunta-texto").innerText = questao.q;
-            const container = document.getElementById("opcoes-container");
-            container.innerHTML = "";
-            questao.opt.forEach((opcao, i) => {
-                const btn = document.createElement("button");
-                btn.className = "btn-opcao";
-                btn.innerText = opcao;
-                btn.onclick = () => {
-                    if (i === questao.res) acertos++;
-                    indiceAtual++;
-                    if (indiceAtual < perguntas.length) carregarQuestao();
-                    else finalizarQuiz();
-                };
-                container.appendChild(btn);
-            });
-        }
+    function fecharQuiz() {
+        document.getElementById("tela-quiz").classList.add("escondida");
+        document.getElementById("tela-principal").classList.remove("escondida");
+    }
 
-        async function finalizarQuiz() {
-            const porcentagem = (acertos / perguntas.length) * 100;
-            let status = porcentagem >= 70 ? "APROVADA" : (porcentagem >= 50 ? "PASSOU" : "REPROVADA");
-            let classe = porcentagem >= 70 ? "sucesso" : (porcentagem >= 50 ? "atencao" : "erro");
+    function confirmarNome() {
+        nomeEstudante = document.getElementById("nome-aluno").value;
+        if (nomeEstudante.trim().length < 3) return alert("Digite seu nome completo.");
+        document.getElementById("etapa-nome").classList.add("escondida");
+        document.getElementById("etapa-perguntas").classList.remove("escondida");
+        carregarQuestao();
+    }
 
-            document.getElementById("etapa-perguntas").classList.add("escondida");
-            document.getElementById("etapa-resultado").classList.remove("escondida");
-            document.getElementById("res-aluno").innerText = `Aluna: ${nomeEstudante}`;
-            document.getElementById("res-box").innerText = `${status} - ${porcentagem}% de acerto`;
-            document.getElementById("res-box").className = `resultado-box ${classe}`;
-            document.getElementById("res-detalhe").innerText = `Você acertou ${acertos} de 8 questões.`;
-
-            localStorage.setItem("quiz_vFinal", "true");
-            enviarDadosParaWebhook(nomeEstudante, acertos, porcentagem, status);
-        }
-
-        async function enviarDadosParaWebhook(nome, pontos, porc, status) {
-            if (WEBHOOK_URL === "https://discord.com/api/webhooks/1487307908126478467/AzisxLSrS5wZr-KsnjUAmS-a5tMCUlVV7BmfqtU_v6RGK9bzmiefgMwlV_JQ_5OR063J") return;
-            const payload = {
-                embeds: [{
-                    title: "🚀 Novo Resultado do Quiz",
-                    color: status === "APROVADA(o)" ? 2253662 : 15548997,
-                    fields: [
-                        { name: "Estudante", value: nome, inline: true },
-                        { name: "Desempenho", value: `${porc}%`, inline: true },
-                        { name: "Status", value: status }
-                    ]
-                }]
+    function carregarQuestao() {
+        const questao = perguntas[indiceAtual];
+        document.getElementById("progresso-texto").innerText = `QUESTÃO ${indiceAtual + 1} DE 8`;
+        document.getElementById("pergunta-texto").innerText = questao.q;
+        const container = document.getElementById("opcoes-container");
+        container.innerHTML = "";
+        questao.opt.forEach((opcao, i) => {
+            const btn = document.createElement("button");
+            btn.className = "btn-opcao";
+            btn.innerText = opcao;
+            btn.onclick = () => {
+                if (i === questao.res) acertos++;
+                indiceAtual++;
+                if (indiceAtual < perguntas.length) carregarQuestao();
+                else finalizarQuiz();
             };
-            fetch(WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            container.appendChild(btn);
+        });
+    }
+
+    async function finalizarQuiz() {
+        const porcentagem = (acertos / perguntas.length) * 100;
+        let status = porcentagem >= 70 ? "APROVADA(O)" : (porcentagem >= 50 ? "PASSOU" : "REPROVADA(O)");
+        let classe = porcentagem >= 70 ? "sucesso" : (porcentagem >= 50 ? "atencao" : "erro");
+
+        document.getElementById("etapa-perguntas").classList.add("escondida");
+        document.getElementById("etapa-resultado").classList.remove("escondida");
+        document.getElementById("res-aluno").innerText = `Aluna(o): ${nomeEstudante}`;
+        document.getElementById("res-box").innerText = `${status} - ${porcentagem}% de acerto`;
+        document.getElementById("res-box").className = `resultado-box ${classe}`;
+        document.getElementById("res-detalhe").innerText = `Você acertou ${acertos} de 8 questões.`;
+
+        localStorage.setItem("quiz_vFinal", "true");
+        enviarDadosParaWebhook(nomeEstudante, acertos, porcentagem, status);
+    }
+
+    async function enviarDadosParaWebhook(nome, pontos, porc, status) {
+        // Removida a linha de trava de segurança que impedia o envio
+        const payload = {
+            embeds: [{
+                title: "🚀 Novo Resultado do Quiz",
+                color: status === "APROVADA(O)" ? 2253662 : 15548997, // Verde se aprovada, Vermelho se não
+                fields: [
+                    { name: "Estudante", value: nome, inline: true },
+                    { name: "Desempenho", value: `${porc}%`, inline: true },
+                    { name: "Acertos", value: `${pontos} de 8`, inline: true },
+                    { name: "Status", value: `**${status}**` }
+                ],
+                timestamp: new Date().toISOString()
+            }]
+        };
+
+        try {
+            await fetch(WEBHOOK_URL, { 
+                method: "POST", 
+                headers: { "Content-Type": "application/json" }, 
+                body: JSON.stringify(payload) 
+            });
+            console.log("Dados enviados com sucesso!");
+        } catch (error) {
+            console.error("Erro ao enviar para o Discord:", error);
         }
-    </script>
+    }
+</script>
 </body>
 </html>
