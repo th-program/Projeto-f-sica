@@ -196,10 +196,10 @@
     <div id="tela-quiz" class="escondida">
         <div class="quiz-card">
             <div id="etapa-nome">
-                <h2 class="gradient-text">Bem-vinda!</h2>
-                <p style="margin-top: 10px;">Para registrar seu desempenho, digite seu nome:</p>
+                <h2 class="gradient-text">Bem-vinda(o)!</h2>
+                <p style="margin-top: 10px;">Para um teste, digite seu nome:</p>
                 <input type="text" id="nome-aluno" placeholder="Nome Completo">
-                <button class="btn-nav" style="width: 100%;" onclick="confirmarNome()">Começar Teste Oficial</button>
+                <button class="btn-nav" style="width: 100%;" onclick="confirmarNome()">Começar Teste</button>
                 <button class="btn-nav" style="margin-top: 10px; background: transparent; border: 1px solid #a855f7;" onclick="fecharQuiz()">Voltar</button>
             </div>
 
@@ -308,7 +308,7 @@
             const payload = {
                 embeds: [{
                     title: "🚀 Novo Resultado do Quiz",
-                    color: status === "APROVADA" ? 2253662 : 15548997,
+                    color: status === "APROVADA(o)" ? 2253662 : 15548997,
                     fields: [
                         { name: "Estudante", value: nome, inline: true },
                         { name: "Desempenho", value: `${porc}%`, inline: true },
