@@ -21,16 +21,9 @@
             overflow-x: hidden;
         }
 
-        /* LÓGICA DE TELAS (Mecanismo solicitado) */
-        .tela {
-            transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .escondida {
-            display: none; /* Diferente do romântico, aqui usamos display none para não quebrar o scroll da página principal */
-        }
+        /* LÓGICA DE TELAS */
+        .tela { transition: 0.5s; opacity: 1; visibility: visible; }
+        .escondida { display: none !important; }
 
         /* NAVBAR */
         .navbar {
@@ -39,7 +32,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 10, 26, 0.8);
+            background: rgba(15, 10, 26, 0.9);
             backdrop-filter: blur(12px);
             position: fixed;
             top: 0; z-index: 1000;
@@ -47,16 +40,17 @@
         }
 
         .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; color: white; }
-        .nav-links { display: flex; align-items: center; gap: 25px; }
-        .nav-links a { text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 14px; transition: 0.3s; }
         .btn-nav {
-            background: #a855f7 !important;
-            color: white !important;
+            background: #a855f7;
+            color: white;
             padding: 10px 22px;
             border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
+            border: none;
+            transition: 0.3s;
         }
+        .btn-nav:hover { background: #d946ef; transform: scale(1.05); }
 
         /* HERO SECTION */
         .hero {
@@ -68,37 +62,30 @@
             text-align: center;
             background: linear-gradient(rgba(15, 10, 26, 0.7), rgba(15, 10, 26, 0.95)),
                         url('https://images.unsplash.com/photo-1530210124550-912dc1381cb8?auto=format&fit=crop&q=80&w=1000') center/cover;
+            padding: 20px;
         }
 
         .badge { color: #d946ef; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px; }
-        .hero h1 { font-size: clamp(35px, 7vw, 70px); font-weight: 900; }
+        .hero h1 { font-size: clamp(30px, 7vw, 60px); font-weight: 900; line-height: 1.1; }
         .gradient-text { background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* CARDS DE INCENTIVO (Substituindo Metodologia) */
+        /* CONTAINER DE CONTEÚDO */
         .container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
-        .incentivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .incentivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
-        .section-box {
-            padding: 40px;
-            background: rgba(30, 20, 50, 0.4);
-            border-radius: 24px;
-            border: 1px solid rgba(168, 85, 247, 0.1);
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-
         .card-incentivo {
             background: rgba(30, 20, 50, 0.5);
             padding: 30px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.3s;
+            text-align: center;
         }
         .card-incentivo:hover { border-color: #d946ef; transform: translateY(-5px); }
         .card-incentivo h3 { color: #d946ef; margin-bottom: 15px; }
 
-        /* ESTILO DO QUIZ (TELA 2) */
-        .tela-quiz {
+        /* TELA DO QUIZ (FIXA) */
+        #tela-quiz {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -120,7 +107,7 @@
             box-shadow: 0 0 50px rgba(168, 85, 247, 0.2);
         }
 
-        .opcoes-quiz { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .opcoes-quiz { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
         .btn-opcao {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -128,114 +115,114 @@
             border-radius: 12px;
             color: white;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
+            font-size: 16px;
         }
-        .btn-opcao:hover { background: #a855f7; }
+        .btn-opcao:hover { background: #a855f7; border-color: #white; }
 
         .btn-voltar {
-            margin-top: 20px;
+            margin-top: 25px;
             background: transparent;
             color: #94a3b8;
             border: none;
             cursor: pointer;
             text-decoration: underline;
+            font-size: 14px;
         }
 
-        /* BLOQUEIO */
-        #bloqueio-msg { color: #fb7185; font-weight: bold; margin-top: 20px; display: none; }
+        /* MENSAGENS E FEEDBACK */
+        #feedback-erro { color: #fb7185; margin-top: 15px; font-weight: bold; min-height: 20px; }
+        .sucesso-box { background: #22c55e; padding: 15px; border-radius: 10px; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <main id="tela-principal" class="tela">
+    <div id="tela-principal" class="tela">
         <nav class="navbar">
-            <a href="#" class="nav-logo">
-                <span class="icon-logo">⚛️</span> <span>Meninas na Ciência</span>
-            </a>
-            <div class="nav-links">
-                <a href="#incentivos">Por que Ciência?</a>
-                <div onclick="abrirQuiz()" class="btn-nav">Fazer o Quiz</div>
-            </div>
+            <a href="#" class="nav-logo">⚛️ Meninas na Ciência</a>
+            <button onclick="abrirQuiz()" class="btn-nav">Fazer o Quiz</button>
         </nav>
 
         <header class="hero">
-            <span class="badge">Desafio de Física 2026</span>
-            <h1>Você tem o poder de<br><span class="gradient-text">Mudar a Realidade</span></h1>
-            <p>Esqueça as fórmulas chatas por um momento. A Física é a ferramenta que as mulheres usaram para levar o homem à lua e desvendar o DNA. Você é a próxima?</p>
-            <button onclick="abrirQuiz()" class="btn-nav" style="padding: 18px 40px; font-size: 18px;">Começar Desafio e Ganhar Prêmio</button>
+            <span class="badge">Projeto de Física</span>
+            <h1>Lugar de Mulher é na <br><span class="gradient-text">Ciência</span></h1>
+            <p style="max-width: 600px; margin: 20px 0; color: #cbd5e1; line-height: 1.6;">
+                Desenvolvemos este portal para mostrar que a Física é fascinante e acessível a todas. 
+                Participe do nosso desafio e teste seus conhecimentos!
+            </p>
+            <button onclick="abrirQuiz()" class="btn-nav" style="padding: 15px 35px;">Iniciar Jornada</button>
         </header>
 
-        <div class="container" id="incentivos">
+        <div class="container">
             <div class="incentivos-grid">
                 <div class="card-incentivo">
-                    <h3>🚀 Lidere a Inovação</h3>
-                    <p>O mercado de tecnologia e ciência precisa da sua visão única. Meninas na física criam soluções que o mundo ainda não viu.</p>
+                    <h3>🔬 Objetivo</h3>
+                    <p>Incentivar o interesse pela física de forma visual e interativa.</p>
                 </div>
                 <div class="card-incentivo">
-                    <h3>💎 Inteligência é Poder</h3>
-                    <p>Dominar as leis do universo te dá autonomia para construir qualquer carreira, de engenharia aeroespacial a medicina de ponta.</p>
+                    <h3>💻 Metodologia</h3>
+                    <p>Uso de IA, GitHub e HTML5 para criar uma experiência imersiva.</p>
                 </div>
                 <div class="card-incentivo">
-                    <h3>🏆 Premiação Exclusiva</h3>
-                    <p>Ao completar nosso quiz de conhecimento, você desbloqueia um acesso especial preparado pela nossa equipe.</p>
+                    <h3>🌟 Resultados</h3>
+                    <p>Mais meninas inspiradas a seguir carreiras em Ciência e Tecnologia.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer style="text-align: center; padding: 40px; color: #94a3b8; font-size: 14px;">
-            Criado para o Projeto de Física &copy; 2026
-        </footer>
-    </main>
-
-    <section id="tela-quiz" class="tela-quiz escondida">
+    <div id="tela-quiz" class="escondida">
         <div class="quiz-card">
-            <div id="quiz-flow">
-                <h2 id="q-titulo" class="gradient-text">Desafio Científico</h2>
-                <p id="q-texto" style="margin-top: 15px; font-size: 18px;">Carregando pergunta...</p>
-                
-                <div class="opcoes-quiz" id="opcoes">
-                    </div>
-                <p id="feedback-erro" style="color: #fb7185; margin-top: 10px; font-size: 14px;"></p>
+            <div id="fluxo-quiz">
+                <h2 class="gradient-text">Desafio Científico</h2>
+                <p id="pergunta-texto" style="margin-top: 15px; font-size: 18px; font-weight: 500;"></p>
+                <div class="opcoes-quiz" id="opcoes-container"></div>
+                <p id="feedback-erro"></p>
             </div>
 
-            <div id="quiz-final" style="display: none;">
-                <h2 class="gradient-text">🏆 Você Conseguiu!</h2>
-                <p style="margin: 20px 0;">Você provou seu conhecimento. Aqui está sua recompensa:</p>
-                <div style="background: #22c55e; padding: 15px; border-radius: 10px; font-weight: bold;">
-                    LINK_DA_RECOMPENSA_AQUI
-                </div>
+            <div id="vitoria-quiz" class="escondida">
+                <h2 class="gradient-text">🏆 Parabéns!</h2>
+                <p style="margin: 15px 0;">Você completou o desafio com sucesso.</p>
+                <div class="sucesso-box">RECOMPENSA: [SEU LINK AQUI]</div>
             </div>
 
-            <div id="bloqueio-msg">
-                Você já realizou este desafio e garantiu sua participação!
+            <div id="bloqueio-quiz" class="escondida">
+                <h2 style="color: #fb7185;">Acesso Limitado</h2>
+                <p style="margin-top: 15px;">Você já realizou este desafio hoje! <br> Agradecemos sua participação.</p>
             </div>
 
-            <button class="btn-voltar" onclick="fecharQuiz()">Voltar ao início</button>
+            <button class="btn-voltar" onclick="fecharQuiz()">Voltar ao Início</button>
         </div>
-    </section>
+    </div>
 
     <script>
         const perguntas = [
-            { q: "Qual cientista ganhou dois Prêmios Nobel em áreas diferentes?", opt: ["Marie Curie", "Ada Lovelace", "Rosalind Franklin"], correct: 0 },
-            { q: "A primeira lei de Newton também é conhecida como lei da...?", opt: ["Gravidade", "Inércia", "Ação e Reação"], correct: 1 },
-            { q: "Quem foi a física que liderou os cálculos para o pouso na Lua?", opt: ["Margaret Hamilton", "Katherine Johnson", "Mileva Marić"], correct: 1 }
+            { q: "Quem foi a primeira mulher a ganhar um Prêmio Nobel?", opt: ["Marie Curie", "Rosalind Franklin", "Ada Lovelace"], res: 0 },
+            { q: "Qual dessas áreas estuda o movimento e as forças?", opt: ["Óptica", "Mecânica", "Termodinâmica"], res: 1 },
+            { q: "A primeira programadora do mundo foi uma mulher. Qual o nome dela?", opt: ["Grace Hopper", "Margaret Hamilton", "Ada Lovelace"], res: 2 }
         ];
 
-        let perguntaAtual = 0;
+        let indiceAtual = 0;
 
-        // FUNÇÃO PARA ABRIR O QUIZ COM BLOQUEIO
         function abrirQuiz() {
-            // Verifica no LocalStorage se o usuário já completou
-            if (localStorage.getItem("quizConcluido") === "true") {
-                document.getElementById("quiz-flow").style.display = "none";
-                document.getElementById("bloqueio-msg").style.display = "block";
-            } else {
-                perguntaAtual = 0;
-                carregarPergunta();
-            }
+            const jaFez = localStorage.getItem("quizConcluido");
             
+            // Esconde o site e mostra o container do quiz
             document.getElementById("tela-principal").classList.add("escondida");
             document.getElementById("tela-quiz").classList.remove("escondida");
+
+            if (jaFez === "true") {
+                // Se já fez, mostra tela de bloqueio
+                document.getElementById("fluxo-quiz").classList.add("escondida");
+                document.getElementById("bloqueio-quiz").classList.remove("escondida");
+            } else {
+                // Se não fez, inicia as perguntas
+                indiceAtual = 0;
+                document.getElementById("fluxo-quiz").classList.remove("escondida");
+                document.getElementById("vitoria-quiz").classList.add("escondida");
+                document.getElementById("bloqueio-quiz").classList.add("escondida");
+                carregarQuestao();
+            }
         }
 
         function fecharQuiz() {
@@ -243,36 +230,36 @@
             document.getElementById("tela-principal").classList.remove("escondida");
         }
 
-        function carregarPergunta() {
-            const data = perguntas[perguntaAtual];
-            document.getElementById("q-texto").innerText = data.q;
-            const container = document.getElementById("opcoes");
-            container.innerHTML = "";
+        function carregarQuestao() {
+            const questao = perguntas[indiceAtual];
+            document.getElementById("pergunta-texto").innerText = questao.q;
             document.getElementById("feedback-erro").innerText = "";
+            
+            const container = document.getElementById("opcoes-container");
+            container.innerHTML = "";
 
-            data.opt.forEach((o, i) => {
+            questao.opt.forEach((opcao, i) => {
                 const btn = document.createElement("button");
                 btn.className = "btn-opcao";
-                btn.innerText = o;
-                btn.onclick = () => verificar(i);
+                btn.innerText = opcao;
+                btn.onclick = () => verificarResposta(i);
                 container.appendChild(btn);
             });
         }
 
-        function verificar(index) {
-            if (index === perguntas[perguntaAtual].correct) {
-                perguntaAtual++;
-                if (perguntaAtual < perguntas.length) {
-                    carregarPergunta();
+        function verificarResposta(escolha) {
+            if (escolha === perguntas[indiceAtual].res) {
+                indiceAtual++;
+                if (indiceAtual < perguntas.length) {
+                    carregarQuestao();
                 } else {
-                    // FINALIZOU O QUIZ
-                    document.getElementById("quiz-flow").style.display = "none";
-                    document.getElementById("quiz-final").style.display = "block";
-                    // SALVA O BLOQUEIO NO NAVEGADOR
+                    // Finalizou!
+                    document.getElementById("fluxo-quiz").classList.add("escondida");
+                    document.getElementById("vitoria-quiz").classList.remove("escondida");
                     localStorage.setItem("quizConcluido", "true");
                 }
             } else {
-                document.getElementById("feedback-erro").innerText = "Resposta incorreta! Revise seus conceitos e tente novamente.";
+                document.getElementById("feedback-erro").innerText = "Ops! Tente novamente.";
             }
         }
     </script>
