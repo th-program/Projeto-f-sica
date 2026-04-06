@@ -117,10 +117,10 @@
         }
 
         .quiz-card {
-            background: transparent; /* Remove a base de fundo */
+            background: transparent;
             padding: 20px;
             max-width: 600px; width: 90%; text-align: center;
-            border: none; box-shadow: none; /* Remove bordas e sombras */
+            border: none; box-shadow: none;
         }
 
         input {
@@ -167,42 +167,11 @@
                 <div class="grid-info">
                     <div class="text-content">
                         <h2>Por que dominar a <span class="gradient-text">Física?</span></h2>
-                        <p>Estudar Física não é decorar fórmulas, é aprender a **ler o mundo**. É entender por que o céu é azul, como seu celular funciona e como podemos viajar para Marte.</p>
+                        <p>Estudar Física não é decorar fórmulas, é aprender a **ler o mundo**. No 2º ano, exploramos como o calor transforma a matéria e como a luz nos permite enxergar o invisível.</p>
                         <p>Ciências da Natureza te dão a capacidade crítica de não ser apenas uma consumidora de tecnologia, mas uma **criadora** dela.</p>
                     </div>
                     <div class="image-placeholder">
                         <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070" alt="Física Nuclear">
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-container" style="background: rgba(168, 85, 247, 0.05); padding: 60px 20px; border-radius: 40px;">
-                <div class="grid-info" style="direction: rtl;"> 
-                    <div class="text-content" style="direction: ltr;">
-                        <h2>O Mundo precisa da sua <span class="gradient-text">Visão.</span></h2>
-                        <p>Durante séculos, nomes masculinos dominaram os livros, mas mulheres como Katherine Johnson (NASA) e Marie Curie mudaram tudo no silêncio dos laboratórios.</p>
-                        <p>A ciência não tem gênero. Sua curiosidade é a única ferramenta necessária para resolver os problemas do aquecimento global, da energia limpa e da medicina moderna.</p>
-                    </div>
-                    <div class="image-placeholder">
-                        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=2070" alt="Mulher na Ciência">
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-container">
-                <h2 style="text-align: center; margin-bottom: 40px;">Fatos que vão explodir sua <span class="gradient-text">Mente</span></h2>
-                <div class="cards-container">
-                    <div class="info-card">
-                        <h4>Somos Poeira de Estrelas ⭐️</h4>
-                        <p>Quase todos os elementos do seu corpo foram forjados no coração de uma estrela que explodiu há bilhões de anos.</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>Tempo Relativo ⏳</h4>
-                        <p>Quanto mais rápido você se move, mais devagar o tempo passa para você. Einstein provou que o tempo é elástico!</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>O Vazio Atômico ⚛️</h4>
-                        <p>Se removêssemos todo o espaço vazio dos átomos de todos os humanos, a humanidade inteira caberia dentro de um cubo de açúcar.</p>
                     </div>
                 </div>
             </section>
@@ -217,7 +186,7 @@
         <div class="quiz-card" id="quiz-animado">
             <div id="etapa-nome">
                 <h2 class="gradient-text">Bem-vinda(o)!</h2>
-                <p style="margin-top: 10px;">Para um teste, digite seu nome:</p>
+                <p style="margin-top: 10px;">Para um teste de nível (2º EM), digite seu nome:</p>
                 <input type="text" id="nome-aluno" placeholder="Nome Completo">
                 <button class="btn-nav" style="width: 100%;" onclick="confirmarNome()">Começar Teste</button>
                 <button class="btn-nav" style="margin-top: 10px; background: transparent; border: 1px solid #a855f7;" onclick="fecharQuiz()">Voltar</button>
@@ -225,7 +194,7 @@
 
             <div id="etapa-perguntas" class="escondida">
                 <p id="progresso-texto" style="color: #a855f7; font-size: 14px; font-weight: bold; margin-bottom: 10px;"></p>
-                <h3 id="pergunta-texto" style="margin-bottom: 20px; min-height: 60px;"></h3>
+                <h3 id="pergunta-texto" style="margin-bottom: 20px; min-height: 85px;"></h3>
                 <div id="opcoes-container"></div>
                 <p id="feedback-erro" style="color: #fb7185; margin-top: 15px; font-weight: bold;"></p>
             </div>
@@ -249,22 +218,54 @@
     <script>
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1487307908126478467/AzisxLSrS5wZr-KsnjUAmS-a5tMCUlVV7BmfqtU_v6RGK9bzmiefgMwlV_JQ_5OR063J"; 
     
+    // QUESTÕES ATUALIZADAS PARA O NÍVEL DO 2º ANO DO ENSINO MÉDIO
     const perguntas = [
-        { q: "Qual força mantém os planetas em órbita ao redor do Sol?", opt: ["Magnetismo", "Inércia", "Gravidade", "Pressão"], res: 2 },
-        { q: "Marie Curie ganhou dois prêmios Nobel em quais áreas?", opt: ["Física e Química", "Física e Biologia", "Química e Medicina", "Matemática"], res: 0 },
-        { q: "O que acontece com a luz quando passa por um prisma?", opt: ["Ela some", "Ela se divide (Refração)", "Ela vira sombra"], res: 1 },
-        { q: "Qual a menor partícula que compõe a matéria comum?", opt: ["Célula", "Molécula", "Átomo", "Grão"], res: 2 },
-        { q: "A primeira programadora do mundo foi uma mulher. Quem?", opt: ["Ada Lovelace", "Grace Hopper", "Marie Curie", "Margareth Hamilton"], res: 0 },
-        { q: "Qual estado da matéria tem volume fixo mas forma variável?", opt: ["Sólido", "Líquido", "Gasoso", "Plasma"], res: 1 },
-        { q: "O som se propaga no vácuo (espaço sideral)?", opt: ["Sim, perfeitamente", "Não, precisa de um meio", "Apenas perto do Sol"], res: 1 },
-        { q: "Quem formulou as leis do movimento e a gravitação universal?", opt: ["Einstein", "Tesla", "Isaac Newton", "Galileu"], res: 2 }
+        { 
+            q: "Em uma transformação isobárica, qual grandeza física permanece constante?", 
+            opt: ["Volume", "Temperatura", "Pressão", "Energia Interna"], 
+            res: 2 
+        },
+        { 
+            q: "A temperatura do zero absoluto na escala Celsius corresponde a aproximadamente:", 
+            opt: ["0°C", "100°C", "-273°C", "273°C"], 
+            res: 2 
+        },
+        { 
+            q: "Qual fenômeno explica por que uma colher parece 'quebrada' ao ser mergulhada em um copo com água?", 
+            opt: ["Reflexão", "Refração", "Difração", "Polarização"], 
+            res: 1 
+        },
+        { 
+            q: "Segundo a 1ª Lei da Termodinâmica, a variação da energia interna de um sistema depende de:", 
+            opt: ["Apenas do calor", "Apenas do trabalho", "Calor e Trabalho", "Apenas da pressão"], 
+            res: 2 
+        },
+        { 
+            q: "Qual dessas ondas NÃO se propaga no vácuo, necessitando de um meio material?", 
+            opt: ["Luz visível", "Onda Sonora", "Raio-X", "Micro-ondas"], 
+            res: 1 
+        },
+        { 
+            q: "Um espelho convexo é muito utilizado em retrovisores de ônibus e saídas de garagens porque:", 
+            opt: ["Aumenta a imagem", "Diminui o campo visual", "Aumenta o campo visual", "Inverte a imagem"], 
+            res: 2 
+        },
+        { 
+            q: "O fenômeno da 'dispersão da luz' é responsável pela formação de qual evento natural?", 
+            opt: ["Eclipse solar", "Arco-íris", "Sombras", "Miragens no asfalto"], 
+            res: 1 
+        },
+        { 
+            q: "Na escala Kelvin, a temperatura nunca pode assumir valores:", 
+            opt: ["Maiores que 100", "Pares", "Negativos", "Ímpares"], 
+            res: 2 
+        }
     ];
 
     let nomeEstudante = "";
     let indiceAtual = 0;
     let acertos = 0;
 
-    // FUNÇÃO DE DESBLOQUEIO
     function desbloquearConteudo() {
         const conteudo = document.getElementById('conteudo-bloqueado');
         conteudo.classList.add('visivel');
@@ -297,7 +298,7 @@
     function carregarQuestao() {
         const card = document.getElementById("quiz-animado");
         card.classList.remove("animar");
-        void card.offsetWidth; // Reinicia animação
+        void card.offsetWidth; 
         card.classList.add("animar");
 
         const questao = perguntas[indiceAtual];
@@ -339,7 +340,7 @@
     async function enviarDadosParaWebhook(nome, pontos, porc, status) {
         const payload = {
             embeds: [{
-                title: "🚀 Novo Resultado do Quiz",
+                title: "🚀 Novo Resultado do Quiz (2º Ano)",
                 color: status === "APROVADA(O)" ? 2253662 : 15548997,
                 fields: [
                     { name: "Estudante", value: nome, inline: true },
