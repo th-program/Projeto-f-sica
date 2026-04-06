@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meninas na Ciência | O Futuro é Feminino ⚛️</title>
+    <title>Meninas na Ciência | Calor e Energia ⚛️</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -60,7 +60,6 @@
 
         .hero {
             height: 100vh;
-            height: 100dvh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -70,7 +69,6 @@
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
             background-position: center center;
             background-size: cover;
-            background-repeat: no-repeat;
             padding: 20px;
             width: 100%;
         }
@@ -86,10 +84,9 @@
             background: linear-gradient(45deg, #1e1432, #2d1b4e);
             border-radius: 30px; border: 1px solid rgba(168, 85, 247, 0.3);
             display: flex; align-items: center; justify-content: center;
-            overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow: hidden;
         }
-        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
-        .image-placeholder:hover img { opacity: 1; transform: scale(1.05); }
+        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
 
         .text-content h2 { font-size: 36px; margin-bottom: 20px; color: #d946ef; }
         .text-content p { font-size: 18px; line-height: 1.8; color: #cbd5e1; margin-bottom: 20px; }
@@ -97,22 +94,20 @@
         .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px; }
         .info-card {
             background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 20px;
-            border-left: 4px solid #a855f7; transition: 0.3s;
+            border-left: 4px solid #a855f7;
         }
-        .info-card:hover { background: rgba(168, 85, 247, 0.1); transform: translateX(10px); }
 
         #tela-quiz {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #0f0a1a; z-index: 2000; display: flex; align-items: center; justify-content: center;
         }
 
-        .quiz-card { background: transparent; padding: 20px; max-width: 600px; width: 90%; text-align: center; border: none; }
+        .quiz-card { background: transparent; padding: 20px; max-width: 600px; width: 90%; text-align: center; }
         input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #a855f7; background: rgba(168, 85, 247, 0.1); color: white; margin: 20px 0; text-align: center; font-size: 16px; }
         .btn-opcao { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(168, 85, 247, 0.3); padding: 16px; border-radius: 15px; color: white; cursor: pointer; transition: 0.2s; font-size: 16px; margin-top: 10px; width: 100%; text-align: left; }
         .btn-opcao:hover { background: #a855f7; transform: scale(1.02); }
         .resultado-box { padding: 20px; border-radius: 15px; margin-top: 20px; font-weight: bold; }
         .sucesso { background: #22c55e; color: white; }
-        .atencao { background: #f59e0b; color: white; }
         .erro { background: #ef4444; color: white; }
     </style>
 </head>
@@ -126,7 +121,7 @@
 
         <header class="hero">
             <span style="color: #d946ef; font-weight: 800; letter-spacing: 5px;">PROJETO DE FÍSICA</span>
-            <h1>A Física é o seu <br><span class="gradient-text">Superpoder.</span></h1>
+            <h1>Calor é <br><span class="gradient-text">Energia.</span></h1>
             <p style="max-width: 700px; margin: 20px 0; font-size: 20px; color: #cbd5e1;">
                 A ciência explica quem somos. É hora das mulheres tomarem a frente da próxima grande descoberta.
             </p>
@@ -141,11 +136,11 @@
                 <div class="grid-info">
                     <div class="text-content">
                         <h2>Por que dominar a <span class="gradient-text">Física?</span></h2>
-                        <p>Estudar Física não é decorar fórmulas, é aprender a **ler o mundo**. No 2º ano, exploramos como o calor transforma a matéria e como a luz nos permite enxergar o invisível.</p>
-                        <p>Ciências da Natureza te dão a capacidade crítica de não ser apenas uma consumidora de tecnologia, mas uma **criadora** dela.</p>
+                        <p>Estudar Física não é decorar fórmulas, é aprender a entender o universo. No 2º ano, exploramos o calor e a energia térmica.</p>
+                        <p>Ciências da Natureza te dão a capacidade crítica de ser uma **criadora** de tecnologia.</p>
                     </div>
                     <div class="image-placeholder">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070" alt="Física Nuclear">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070" alt="Física">
                     </div>
                 </div>
             </section>
@@ -154,8 +149,8 @@
                 <div class="grid-info" style="direction: rtl;"> 
                     <div class="text-content" style="direction: ltr;">
                         <h2>O Mundo precisa da sua <span class="gradient-text">Visão.</span></h2>
-                        <p>Durante séculos, nomes masculinos dominaram os livros, mas mulheres como Katherine Johnson e Marie Curie mudaram tudo no silêncio dos laboratórios.</p>
-                        <p>Sua curiosidade é a única ferramenta necessária para resolver os problemas do aquecimento global, da energia limpa e da medicina moderna.</p>
+                        <p>Mulheres como Katherine Johnson mudaram a história da ciência no silêncio dos laboratórios.</p>
+                        <p>A ciência não tem gênero. Sua curiosidade é a única ferramenta necessária.</p>
                     </div>
                     <div class="image-placeholder">
                         <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=2070" alt="Mulher na Ciência">
@@ -164,19 +159,19 @@
             </section>
 
             <section class="section-container">
-                <h2 style="text-align: center; margin-bottom: 40px;">Fatos que vão explodir sua <span class="gradient-text">Mente</span></h2>
+                <h2 style="text-align: center; margin-bottom: 40px;">Fatos <span class="gradient-text">Científicos</span></h2>
                 <div class="cards-container">
                     <div class="info-card">
-                        <h4>Somos Poeira de Estrelas ⭐️</h4>
-                        <p>Os elementos do seu corpo foram forjados no coração de uma estrela que explodiu há bilhões de anos.</p>
+                        <h4>Poeira de Estrelas ⭐️</h4>
+                        <p>Os elementos do seu corpo foram forjados no coração de uma estrela.</p>
                     </div>
                     <div class="info-card">
                         <h4>Tempo Relativo ⏳</h4>
-                        <p>Quanto mais rápido você se move, mais devagar o tempo passa. Einstein provou que o tempo é elástico!</p>
+                        <p>O tempo é elástico e passa diferente dependendo da velocidade.</p>
                     </div>
                     <div class="info-card">
-                        <h4>O Vazio Atômico ⚛️</h4>
-                        <p>Se removêssemos o espaço vazio dos átomos de todos os humanos, caberíamos em um cubo de açúcar.</p>
+                        <h4>Vazio Atômico ⚛️</h4>
+                        <p>Somos formados majoritariamente por espaço vazio entre átomos.</p>
                     </div>
                 </div>
             </section>
@@ -189,11 +184,12 @@
 
     <div id="tela-quiz" class="escondida">
         <div class="quiz-card" id="quiz-animado">
+            
             <div id="etapa-nome">
                 <h2 class="gradient-text">Bem-vinda(o)!</h2>
-                <p style="margin-top: 10px;">Para o teste de Física (2º EM), digite seu nome:</p>
+                <p style="margin-top: 10px;">Identifique-se para começar (Apenas 1 chance):</p>
                 <input type="text" id="nome-aluno" placeholder="Nome Completo">
-                <button class="btn-nav" style="width: 100%;" onclick="confirmarNome()">Começar Teste</button>
+                <button class="btn-nav" style="width: 100%;" onclick="confirmarNome()">Começar Desafio</button>
                 <button class="btn-nav" style="margin-top: 10px; background: transparent; border: 1px solid #a855f7;" onclick="fecharQuiz()">Voltar</button>
             </div>
 
@@ -204,10 +200,17 @@
             </div>
 
             <div id="etapa-resultado" class="escondida">
-                <h2 id="res-titulo">Fim do Desafio!</h2>
+                <h2 id="res-titulo">Desafio Concluído!</h2>
                 <p id="res-aluno" style="margin: 10px 0; font-style: italic;"></p>
                 <div id="res-box" class="resultado-box"></div>
-                <button class="btn-nav" style="margin-top: 25px;" onclick="location.reload()">Sair e Reiniciar</button>
+                <p style="margin-top: 20px; color: #cbd5e1;">Seu resultado foi enviado. Obrigado por participar!</p>
+                <button class="btn-nav" style="margin-top: 25px;" onclick="fecharQuiz()">Voltar ao Início</button>
+            </div>
+
+            <div id="etapa-bloqueio" class="escondida">
+                <h2 style="color: #fb7185;">Acesso Negado</h2>
+                <p style="margin-top: 20px;">Você já realizou este desafio. <br>Cada aluno possui apenas uma tentativa.</p>
+                <button class="btn-nav" style="margin-top: 25px;" onclick="fecharQuiz()">Sair</button>
             </div>
         </div>
     </div>
@@ -216,14 +219,14 @@
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1487307908126478467/AzisxLSrS5wZr-KsnjUAmS-a5tMCUlVV7BmfqtU_v6RGK9bzmiefgMwlV_JQ_5OR063J"; 
     
     const perguntas = [
-        { q: "Em uma transformação isobárica, qual grandeza física permanece constante?", opt: ["Volume", "Temperatura", "Pressão", "Energia Interna"], res: 2 },
-        { q: "A temperatura do zero absoluto na escala Celsius corresponde a aproximadamente:", opt: ["0°C", "100°C", "-273°C", "273°C"], res: 2 },
-        { q: "Qual fenômeno explica por que uma colher parece 'quebrada' ao entrar na água?", opt: ["Reflexão", "Refração", "Difração", "Polarização"], res: 1 },
-        { q: "A 1ª Lei da Termodinâmica diz que a variação da energia interna depende de:", opt: ["Apenas calor", "Apenas trabalho", "Calor e Trabalho", "Pressão"], res: 2 },
-        { q: "Qual dessas ondas NÃO se propaga no vácuo?", opt: ["Luz visível", "Onda Sonora", "Raio-X", "Micro-ondas"], res: 1 },
-        { q: "Um espelho convexo é usado em retrovisores de ônibus porque:", opt: ["Aumenta a imagem", "Diminui o campo visual", "Aumenta o campo visual", "Inverte a imagem"], res: 2 },
-        { q: "A dispersão da luz é responsável pela formação de qual evento?", opt: ["Eclipse", "Arco-íris", "Sombras", "Miragens"], res: 1 },
-        { q: "Na escala Kelvin, a temperatura nunca pode assumir valores:", opt: ["Maiores que 100", "Pares", "Negativos", "Ímpares"], res: 2 }
+        { q: "Qual é a definição correta de 'caloria' (cal) na física?", opt: ["A quantidade de calor para elevar 1g de água em 1°C", "Energia total dentro de um átomo", "Força para mover 1kg por um metro", "Tempo que a água leva para ferver"], res: 0 },
+        { q: "Quando um corpo recebe calor, o que acontece com suas moléculas?", opt: ["Param de se mover", "A agitação das moléculas aumenta", "Elas diminuem de tamanho", "Transformam-se em outros átomos"], res: 1 },
+        { q: "Se um bloco de 100g e um de 200g de ferro estão à mesma temperatura, qual tem mais energia térmica?", opt: ["O bloco de 200g", "O bloco de 100g", "Ambos possuem a mesma energia", "Nenhum possui energia"], res: 0 },
+        { q: "O 'calor específico' de uma substância indica:", opt: ["A temperatura máxima que ela atinge", "A dificuldade ou facilidade em variar a temperatura", "O tempo para derreter", "A cor da substância"], res: 1 },
+        { q: "Qual a relação aproximada entre calorias e Joules (SI)?", opt: ["1 cal ≈ 4,18 J", "1 cal = 100 J", "1 J = 4,18 cal", "1 cal = 1 J"], res: 0 },
+        { q: "O que ocorre com a temperatura de uma substância pura durante a mudança de estado?", opt: ["Aumenta rapidamente", "Permanece constante", "Diminui", "Oscila aleatoriamente"], res: 1 },
+        { q: "Qual é a diferença fundamental entre Calor e Temperatura?", opt: ["São sinônimos", "Temperatura é energia em trânsito", "Calor é energia transferida; Temperatura mede agitação", "Calor mede graus; Temperatura mede calorias"], res: 2 },
+        { q: "O calor sempre flui espontaneamente de um corpo para outro quando:", opt: ["Um tem mais massa", "Existe diferença de temperatura", "Eles estão no vácuo", "Estão à mesma temperatura"], res: 1 }
     ];
 
     let nomeEstudante = "";
@@ -236,8 +239,16 @@
     }
 
     function abrirQuiz() {
+        const jaParticipou = localStorage.getItem("projeto_fisica_concluido");
         document.getElementById("tela-principal").classList.add("escondida");
         document.getElementById("tela-quiz").classList.remove("escondida");
+
+        if (jaParticipou) {
+            document.getElementById("etapa-nome").classList.add("escondida");
+            document.getElementById("etapa-perguntas").classList.add("escondida");
+            document.getElementById("etapa-resultado").classList.add("escondida");
+            document.getElementById("etapa-bloqueio").classList.remove("escondida");
+        }
     }
 
     function fecharQuiz() {
@@ -280,11 +291,13 @@
     }
 
     async function finalizarQuiz() {
+        localStorage.setItem("projeto_fisica_concluido", "true");
         const porc = (acertos / perguntas.length) * 100;
         let status = porc >= 70 ? "APROVADA(O)" : (porc >= 50 ? "PASSOU" : "REPROVADA(O)");
+        
         document.getElementById("etapa-perguntas").classList.add("escondida");
         document.getElementById("etapa-resultado").classList.remove("escondida");
-        document.getElementById("res-aluno").innerText = `Aluna(o): ${nomeEstudante}`;
+        document.getElementById("res-aluno").innerText = `Estudante: ${nomeEstudante}`;
         document.getElementById("res-box").innerText = `${status} - ${porc}% de acerto`;
         document.getElementById("res-box").className = `resultado-box ${porc >= 60 ? 'sucesso' : 'erro'}`;
         
@@ -292,10 +305,10 @@
     }
 
     async function enviarDadosParaWebhook(nome, pontos, porc, status) {
-        const payload = { embeds: [{ title: "🚀 Novo Resultado do Quiz (2º Ano)", fields: [
+        const payload = { embeds: [{ title: "🚀 Resultado Final - Calor e Energia", color: 10181046, fields: [
             { name: "Estudante", value: nome, inline: true },
-            { name: "Desempenho", value: `${porc}%`, inline: true },
             { name: "Acertos", value: `${pontos} de 8`, inline: true },
+            { name: "Desempenho", value: `${porc}%`, inline: true },
             { name: "Status", value: `**${status}**` }
         ]}]};
         try { fetch(WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); } catch (e) {}
